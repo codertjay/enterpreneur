@@ -1,0 +1,23 @@
+{% extends 'coding/base.html' %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+<div class="container">
+<div class="row">
+    <div class="col">
+        {% if title %}
+         ,<h1>{{ title }}</h1>
+        {% endif %}
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit"> send</button>
+        </form>
+    </div>
+</div>
+</div>
+
+
+
+
+{% endblock content %}

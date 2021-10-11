@@ -1,0 +1,17 @@
+
+
+this is a query set which can be use to filter only an object containing slug using the slugfield
+
+1i) # queryset = Post.objects.filter(slug=slug)
+    # if queryset.count() != 0:
+    #     raise Http404
+    # obj = queryset.first()
+
+1ii) but this is the best way to do it
+        obj = get_object_or_404(Post,slug=slug)
+
+2) this metho is use to filter all the post containg a praticular world
+
+    queryset = Post.objects.filter(title__icontains='hello')
+
+

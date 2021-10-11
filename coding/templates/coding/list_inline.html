@@ -1,0 +1,25 @@
+
+<div class="col-md-3 col-lg-5 col-sm-8">
+<div class="card mb-3">
+  <img class="card-img-top" src="{{ file.image.url }}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{ file.title }}</h5>
+
+      {% if truncate %}
+    <p class="card-text">{{ file.content|linebreaks|truncatewords:30 }}</p>
+    <p class="card-text"><small class="text-muted">{{ file.category }}</small></p>
+      <a href="{{ file.get_absolute_url }}" class="btn btn-outline-primary">.more</a>
+
+      {% else %}
+   <p class="card-text">{{ file.content|linebreaks }}</p>
+    <p class="card-text"><small class="text-muted">{{ file.category }}</small></p>
+      <a href="{{ file.get_absolute_url }}" class="btn btn-outline-primary">.more</a>
+
+      {% endif %}
+  </div>
+</div>
+
+
+ </div>
+
+{#    end of column#}

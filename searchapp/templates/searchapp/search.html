@@ -1,0 +1,29 @@
+{% extends 'coding/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="container">
+    <h1 class="font-weight-bolder text-center font-italic lead" >You searched for {{ query }}</h1>
+<div class="row ">
+    {% if query %}
+        {% for post in blog_list %}
+
+        {% include 'coding/list_inline.html' with file=post truncate=True %}
+        {% endfor %}
+
+    {% endif %}
+
+
+
+</div>
+
+</div>
+{#    end of container#}
+
+
+
+{% endblock content %}
+
+

@@ -1,0 +1,68 @@
+{% extends 'coding/base.html' %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+<div class="container-fluid">
+<div class="row justify-content-center text-capitalize">
+<div class="card mb-3 col-md-12 col-sm-12 col-lg-10">
+  <img class="card-img-top" src="{{ post.image.url }}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title font-weight-bolder">{{ post.title }}</h5>
+    <p class="card-text font-italic">{{ post.content }}</p>
+    <p class="card-text"><small class="text-muted">{{ post.category }}</small></p>
+      <footer class="blockquote-footer font-weight-bold lead">by- {{ post.user }}</footer>
+      {% if request.user.is_authenticated %}
+          {% if request.user.is_staff %}
+              <a href="{{ post.get_update_url }}">Edit</a>
+              <br>
+              <a href="{{ post.get_delete_url }}">Delete</a>
+          {% endif %}
+      {% endif %}
+
+  </div>
+</div>
+
+</div>
+{#end of row#}
+
+<div class="container">
+<div class="row">
+<div class="col-2">
+    <form action="{% url 'blog:blog_action' post.slug %}" method="POST">
+        {% csrf_token %}
+        {{ formlike|crispy }}
+    <button class="btn btn-primary" type="submit">like</button>
+    </form>
+
+{% comment %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{  formunlike|crispy }}
+        <button  class="btn btn-primary" type="submit">Unlike</button>
+    </form>{% endcomment %}
+</div>
+{#    <form action="" method="post">#}
+{#        {% csrf_token %}#}
+{#        {{ form|crispy }}#}
+{#        <button class="btn btn-primary">submit</button>#}
+{#    </form>#}
+{##}
+
+    {% for comment in post.blogcomment_set.all %}
+
+        {{ comment.username }}
+        {{ comment.content }}
+        {{ comment.time }}
+
+    {% endfor %}
+
+</div>
+
+
+
+</div>
+
+
+</div>
+{#    end of container#}
+{% endblock content %}

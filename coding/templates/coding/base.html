@@ -1,0 +1,92 @@
+{% load static %}
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>JoinCfe Blog</title>
+
+  <!-- Bootstrap core CSS -->
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'coding/css/bootstrap.min.css' %}" rel="stylesheet">
+{#  <link href="{% static 'coding/css/blog-home.css' %}" rel="stylesheet">#}
+
+</head>
+
+<body>
+
+<div class="container-fluid">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-primary " >
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'codertjay:home_page' %}">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'blog:blog_list' %}">Blog</a>
+      </li>
+
+    </ul>
+
+        <form class="form-inline my-2 my-lg-0" action="{% url 'searchapp:search_blog' %}">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" name="q" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+
+   </div>
+
+</nav>
+
+ </div>
+{#end of navbar#}
+   <div class="mt-5 pt-0">
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {% endfor %}
+    {% endif %}
+    </div>
+
+
+
+
+<div class="container-fluid">
+<div class="jumbotron jumbotron mx-auto">
+  <div class="container text-center ">
+    <h1 class="display-4">Join Cfe</h1>
+    <p class="lead">This is my official blog .</p>
+  </div>
+</div>
+
+
+</div>
+
+
+{% block content %}
+{% endblock content %}
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'coding/js/bootstrap.bundle.min.js' %}"></script>
+
+  <script src="{% static 'coding/js/jquery-3.4.1.min.js' %}"></script>
+</body>
+
+</html>

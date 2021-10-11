@@ -1,0 +1,29 @@
+{% extends 'coding/base.html' %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+
+ <div class="container float-lg-right ">
+
+     <div class="text-capitalize "><h1>{{ user.username }} profile</h1></div>
+      <div class="">{{ user.email }}</div>
+     <div class="row img-fluid img-rounded "><img src="{{ user.profile.image.url }}" alt=""></div>
+        <div class="">{{ user.email }}</div>
+
+<div class="row pt-4">
+
+     <form action="" method="post" enctype="multipart/form-data">
+         {% csrf_token %}
+         {{ u_form|crispy }}
+         {{ p_form|crispy }}
+         <button type="submit" class=" btn btn-outline-primary">Update</button>
+     </form>
+</div>
+
+
+
+</div>
+
+
+
+{% endblock content %}

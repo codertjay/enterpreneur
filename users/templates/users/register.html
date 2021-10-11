@@ -1,0 +1,15 @@
+{% extends 'coding/base.html' %}
+{% load crispy_forms_filters %}
+
+
+{% block content %}
+<div class="container">
+this
+    <form action="" method="post">
+    {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-success">Signup</button>
+    </form>
+</div>
+
+{% endblock content %}

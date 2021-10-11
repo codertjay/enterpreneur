@@ -1,0 +1,16 @@
+{% extends 'coding/base.html' %}
+{% load crispy_forms_filters %}
+
+
+{% block content %}
+<div class="container" style="height: 50%">
+    <form action="" enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        <div class="col-md-6 col-6">
+        {{ form|crispy }}
+    <button class="btn btn-success">Login</button>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}

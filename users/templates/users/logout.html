@@ -1,0 +1,10 @@
+{% extends 'coding/base.html' %}
+{% load crispy_forms_filters %}
+
+
+{% block content %}
+<div class="container  text-center font-italic" style="height: 50%; background-color: rgba(186,209,255,0.76);">
+    <h2>Already have an account?</h2>
+    <a href="{% url 'users:login' %}" class="btn btn-outline-primary">Sign in</a>
+</div>
+{% endblock content %}
